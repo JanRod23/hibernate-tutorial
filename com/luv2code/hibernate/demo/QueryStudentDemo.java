@@ -47,10 +47,16 @@ public class QueryStudentDemo {
 				System.out.println(tempStudent);
 			}
 			
+			// Find students where email ends with 'luv2code.com'
+			theStudents = session.createQuery("from Student s where s.email LIKE '%luv2code.com'").getResultList();
+			
+			System.out.println("\n\nStudents who have email ending in luv2code.com");
+			for(Student tempStudent : theStudents) {
+				System.out.println(tempStudent);
+			}
+			
 			// Commit transaction
 			session.getTransaction().commit();
-			
-			System.out.println("Done!");
 		}
 		finally {
 			factory.close();
